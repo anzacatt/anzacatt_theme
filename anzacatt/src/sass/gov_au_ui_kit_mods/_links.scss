@@ -1,0 +1,124 @@
+/*
+Link styles
+
+Styling for types and classes of links.
+
+There are other link styles documented elsewhere (for example [tags in list styles](http://gov-au-ui-kit.apps.staging.digital.gov.au/section-list-styles.html)).
+
+Style guide: Link styles
+*/
+
+// A base extend that provides the styling for icons at the end of a link.
+%base-link-icon--after {
+  content: '';
+  position: absolute;
+  display: inline;
+  width: $medium-spacing;
+  height: $medium-spacing;
+  background-repeat: no-repeat;
+  background-position: right $tiny-spacing;
+  border-bottom: 1px solid transparent;
+}
+
+@mixin link-colours($text-colour, $hover-bg-colour, $hover-text-colour: $text-colour) {
+  $link-disabled-colour: transparentize($text-colour, 0.3);
+  // color: $text-colour;
+  a:not(.no-style) {
+    color: $text-colour;
+    text-decoration: none;
+    outline: none;
+    border-bottom: solid 1px $hover-bg-colour;
+    transition-timing-function: $transition-easing;
+    transition-duration: $transition-timing-fast;
+    transition-property: background-color, border-color, color;
+    &:hover, &:focus {
+      background-color: $hover-bg-colour;
+      color: $hover-text-colour;
+    }
+    &[rel~='external'] {
+      display: inline;
+      position: relative;
+      margin-right: $base-spacing;
+      &:hover {
+        border-color: transparent;
+      }
+      &::after {
+        @extend %icon-external-link--aqua;
+        @extend %base-link-icon--after;
+        background-size: (0.75 * $medium-spacing) auto;
+      }
+    }
+    &.active {
+      color: $text-colour;
+      &:hover, &:focus {
+        color: $hover-text-colour;
+      }
+    }
+  }
+  .see-more {
+    display: inline-block;
+    position: relative;
+    margin-right: $base-spacing;
+    font-weight: $heading-font-weight;
+    color: $button-bg-colour;
+    &::after {
+      @extend %icon-arrow-right--aqua;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -($medium-spacing);
+      display: block;
+      width: $medium-spacing;
+      height: $medium-spacing;
+      background-repeat: no-repeat;
+      background-position: right $tiny-spacing;
+      background-size: (0.8 * $small-spacing) auto;
+    }
+    &:hover, &:focus {
+      color: $hover-text-colour;
+    }
+  }
+  // Specifying a span here explicitly to avoid a.placeholder-link usage.
+  span {
+    &.placeholder-link {
+      color: $link-disabled-colour;
+      border-bottom: none;
+      cursor: not-allowed;
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Placeholder link support for .local-nav padding and indents
+.local-nav {
+  ul {
+    .placeholder-link {
+      display: block;
+      border-left: 4px solid transparent;
+      padding: ($medium-spacing / 2) $small-spacing;
+    }
+    ul {
+      ul {
+        .placeholder-link {
+          padding-left: $base-spacing;
+        }
+        ul {
+          .placeholder-link {
+            padding-left: $base-spacing + $small-spacing;
+          }
+        }
+      }
+    }
+  }
+}
+
+// main>article {
+//   @include link-colours($non-black, $light-aqua, $non-black);
+//   @include button-colours($button-bg-colour, $button-bg-colour--hover, $button-bg-colour--active, $button-text-colour);
+// }
+// footer[role='contentinfo'] {
+//   @include link-colours($non-black, $light-aqua, $non-black);
+//   @include button-colours(transparent, $button-bg-colour--hover, $button-bg-colour--active, $button-bg-colour--hover, $button-text-colour);
+// }

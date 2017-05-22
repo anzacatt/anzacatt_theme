@@ -1,0 +1,5 @@
+name = ANZACATT Admin
+description = ANZACATT Admin theme, based on Shiny.
+
+core = 7.x
+base theme = shiny

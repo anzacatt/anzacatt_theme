@@ -1,0 +1,126 @@
+// =========================================================
+// LISTING
+// The default style for content views.
+// =========================================================
+body.not-front #content {
+  .no-sidebar {
+    .view {
+      @include center-column($desktop_column);
+      .views-row {
+        width: 100%;
+      }
+    }
+  }
+  .has-sidebar {
+    .view {
+      max-width: $desktop_content_column;
+    }
+    .views-row {
+      width: 100%;
+      @include breakpoint(tablet) {
+        @include span-columns(6 of 12);
+      }
+      &:nth-child(2n) {
+        @include breakpoint(tablet) {
+          @include omega();
+        }
+      }
+    }
+  }
+  .view {
+    .view-content {
+      @include breakpoint(tablet) {
+        @include outer-container(100%);
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .views-row {
+        .node {
+          @include listing-component-wrapper;
+          padding-left: 0;
+          padding-right: 0;
+          &.has-thumbnail {
+            padding-top: $listing_component_image_height;
+            .field-type-image {
+              @include listing-component-image;
+              .field-item:nth-child(n + 2) {
+                display: none;
+              }
+            }
+            h2 {
+              margin-top: rem(30px);
+            }
+          }
+          &>.links {
+            li {
+              padding-left: 0;
+            }
+          }
+        }
+        h2 {
+          @include listing-component-heading;
+          margin-top: 0;
+        }
+        .field-name-field-date, .submitted, .field-type-datetime {
+          @include listing-component-subtext;
+        }
+        .field-name-body {
+          @include listing-component-body;
+        }
+      }
+    }
+    .pager {
+      margin-top: $default_padding;
+      margin-bottom: $default_padding;
+    }
+  }
+}
+
+.views-table {
+  width: 100%;
+  th {
+    border: none;
+    white-space: nowrap;
+  }
+  tr.odd {
+    background-color: $background;
+  }
+  tr.even {
+    background-color: transparent;
+  }
+  tr.even, tr.odd {
+    border-bottom: $light-grey;
+  }
+  th, td {
+    padding: 10px 20px;
+  }
+}
+
+.views-exposed-form {
+  margin: 10px auto;
+  width: 100%;
+  select {
+    border: 1px solid $neutral_3;
+  }
+  @include breakpoint(mobile) {
+    input[type="submit"] {
+      width: 100%;
+    }
+    .views-exposed-widget {
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+// =========================================================
+// VIEWS MEMEBERS
+// =========================================================
+.view-members {
+  .view-content {
+    overflow-x: auto;
+    .views-table {
+      min-width: 600px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.drupal-navbar {
+  ul {
+    @include media($tablet) {
+      font-size: rem(16);
+    }
+  }
+}
+
+ul.contextual-links {
+  @include media($tablet) {
+    font-size: rem(16);
+  }
+}
+
+ul.tabs.primary {
+  @include center-column($desktop_column);
+  border-color: $primary_1;
+  a {
+    border-color: $primary_1;
+    background-color: $neutral_4;
+    &.active {
+      border-color: $primary_1;
+      border-bottom-color: transparent;
+      &:hover {
+        background-color: $secondary_2;
+        border-bottom-color: transparent;
+      }
+    }
+    &:hover, &:focus {
+      border-color: $primary_1;
+      background-color: $secondary_2;
+    }
+  }
+}
+
+.content .profile {
+  @include center-column($desktop_column);
+}
+
+#user-login {
+  @include center-column($desktop_column);
+  &>div {
+    max-width: rem(550px);
+    box-sizing: border-box;
+  }
+}
+
+.block-workbench {
+  @include center-column($desktop_column);
+  margin-top: $default_padding;
+  margin-bottom: $default_padding;
+}

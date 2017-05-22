@@ -1,0 +1,31 @@
+// =========================================================
+// PUBLICATIONS
+// The default style for the publications listing.
+// =========================================================
+body.not-front {
+  #content {
+    .no-sidebar, .has-sidebar {
+      .view-publications {
+        .views-row {
+          width: 100%;
+          margin-bottom: 30px;
+          .views-field-title {
+            h2 {
+              font-size: rem(26px);
+            }
+            margin-bottom: 5px;
+          }
+          .views-field-body {
+            margin-bottom: 5px;
+            p {
+              margin-bottom: 0px;
+            }
+          }
+          .more-documents-link {
+            margin-top: -10px;
+          }
+        }
+      }
+    }
+  }
+}

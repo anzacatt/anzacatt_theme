@@ -1,0 +1,124 @@
+// =========================================================
+// GENERAL FOOTER MENUS
+// =========================================================
+.footer-inner-wrapper {
+  background-color: $secondary_1;
+  padding-top: rem(20px);
+  a[rel~='external']::after {
+    background-image: url(../images/svg/external-link--white.svg) !important;
+  }
+  .region-footer {
+    box-sizing: content-box;
+    padding-left: rem(20px);
+    padding-right: rem(20px);
+    @include breakpoint(tablet) {
+      max-width: rem(1170px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .block-menu, .block-menu-block {
+      .content {
+        @include center-column($desktop_column);
+        padding-left: 0 !important;
+        padding-top: rem(17px);
+        padding-bottom: rem(17px);
+        color: white;
+        @include breakpoint(tablet) {
+          padding-top: rem(64px);
+          padding-bottom: rem(64px);
+        }
+        // First level of nav should be horizontal.
+        &>ul.menu, &>.menu-block-wrapper>ul.menu {
+          @include breakpoint(tablet) {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 0;
+          }
+          &>li {
+            @include breakpoint(tablet) {
+              display: table-cell;
+              margin-bottom: 0;
+              margin-bottom: $default_padding;
+            }
+          }
+        }
+        ul.menu {
+          padding-left: 0;
+          margin-bottom: 0;
+          &>li {
+            @include link-colours($background, $neutral_4, $neutral_1);
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $default_padding;
+            padding: 0;
+            list-style: none;
+            margin-bottom: rem(12px);
+            &>a {
+              font-weight: 300;
+              border-bottom: 0 !important;
+              @include breakpoint(tablet) {
+                font-weight: 400;
+              }
+            }
+            &>ul {
+              display: none;
+              @include breakpoint(tablet) {
+                display: block;
+                padding-left: 0;
+                margin-top: rem(35px);
+              }
+              li {
+                a {
+                  font-weight: 300;
+                }
+              }
+              ul {
+                padding-left: $default_padding;
+                margin-top: $default_padding;
+              }
+            }
+          }
+        }
+      }
+    }
+    #block-menu-menu-footer-sub-menu {
+      &>h2 {
+        @include visually-hidden;
+      }
+    }
+    #block-menu-menu-footer-left-menu, #block-menu-menu-footer-right-menu {
+      vertical-align: top;
+      padding-top: rem(22px);
+      @include breakpoint(tablet) {
+        padding-top: rem(46px);
+        box-sizing: border-box;
+      }
+      &>h2 {
+        // @include visually-hidden-off;
+        @include block-heading;
+        color: $background !important;
+        font-size: rem(18px) !important;
+        font-weight: 600 !important;
+        margin-top: 0;
+      }
+      .content {
+        padding-top: 4px;
+      }
+      @include breakpoint(tablet) {
+        width: 49%;
+        display: inline-block;
+        @include breakpoint(tablet) {
+          padding-right: rem(22px);
+        }
+        .content {
+          &>ul.menu, &>.menu-block-wrapper>ul.menu {
+            &>li {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

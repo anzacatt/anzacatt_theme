@@ -1,0 +1,98 @@
+//   ==========================================================================
+//   Print styles from https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+//
+//   HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/
+//
+//   Inlined to avoid the additional HTTP request:
+//   http://www.phpied.com/delay-loading-your-print-css/
+//   ==========================================================================
+// scss-lint:disable QualifyingElement
+@media print {
+  body {
+    display: block;
+  }
+  // Hide certain elements (navigation, header, footer excluding copyright notice etc.)
+  .region-page-top, #nav, #secondary-menu, #block-search-api-page-site-search, .footer-inner-wrapper .region-footer #block-menu-menu-footer-left-menu, .footer-inner-wrapper .region-footer #block-menu-menu-footer-right-menu, #block-menu-menu-footer-sub-menu .content ul.menu, .tabs.primary {
+    display: none;
+  }
+  body.front, body.not-front {
+    #content {
+      .content-header, #panels-ipe-display-panel-context-page-front-page-page-front-page-panel-context .pane-content {
+        background: none !important;
+        color: $secondary_1;
+        height: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        &:before {
+          background: none !important;
+        }
+        .field-name-field-bean-body p {
+          color: $secondary_1;
+        }
+        .content-header-inner, p {
+          .breadcrumbs--inverted li, h1#page-title {
+            color: $secondary_1;
+            a {
+              color: $secondary_1;
+            }
+          }
+        }
+      }
+      .views-exposed-widgets {
+        .views-widget-filter-search_api_views_fulltext {
+          width: rem(165px);
+        }
+        .views-submit-button {
+          input {
+            height: rem(45px);
+            background-color: #373854;
+            border-color: #373854;
+            color: white;
+            -webkit-print-color-adjust: exact;
+          }
+        }
+      }
+      *, *::before, *::after {
+        background: transparent;
+        box-shadow: none;
+        text-shadow: none;
+      }
+      a, a:visited, a::first-letter {
+        text-decoration: underline;
+        border-bottom: none;
+        color: $secondary_2;
+      }
+      abbr[title]::after {
+        content: ' (' attr(title) ')';
+      }
+      pre, blockquote {
+        border: 1px solid $light-grey;
+        page-break-inside: avoid;
+      }
+      //Printing Tables: http://css-discuss.incutio.com/wiki/Printing_Tables
+      thead {
+        display: table-header-group;
+      }
+      tr, img {
+        page-break-inside: avoid;
+      }
+      img {
+        max-width: 100%;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3 {
+        page-break-after: avoid;
+      }
+    }
+  }
+  .footer-inner-wrapper {
+    background-color: none;
+    .footer-copyright {
+      color: $black;
+    }
+  }
+}

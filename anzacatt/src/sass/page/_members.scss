@@ -1,0 +1,50 @@
+// =========================================================
+// MEMBERS
+// The default style for members listing and member profiles.
+// =========================================================
+.view-members {
+  tr {
+    td:nth-child(0) {
+      white-space: nowrap;
+    }
+  }
+  .views-exposed-form {
+    margin: 10px auto;
+    width: 100%;
+    select {
+      width: 100%;
+      border: 1px solid $neutral_3;
+    }
+    @include breakpoint(tablet) {
+      select {
+        min-width: 500px;
+      }
+    }
+  }
+}
+
+.page-node {
+  .region-content {
+    .node-member-profile {
+      h1 {
+        color: $secondary_1;
+      }
+      @include breakpoint(tablet) {
+        .field-name-field-image {
+          float: right;
+          margin-left: 20px;
+          margin-top: 0;
+        }
+      }
+      .field-name-body {
+        white-space: pre-line;
+      }
+      .field-name-field-member-educate-qualificate {
+        white-space: pre-line;
+      }
+      .field-name-field-member-address {
+        white-space: pre-line;
+      }
+    }
+  }
+}

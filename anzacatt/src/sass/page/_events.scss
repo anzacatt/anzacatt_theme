@@ -1,0 +1,35 @@
+// =========================================================
+// EVENTS
+// The default style for the events listing.
+// =========================================================
+body.not-front #content {
+  .no-sidebar {
+    .view.view-events {
+      .view-content {
+        .views-row {
+          margin-bottom: rem(30px);
+          .views-field-title {
+            margin-top: rem(5px);
+          }
+          .views-label-field-cost {
+            font-weight: bold;
+          }
+          .views-field-field-cost {
+            margin-top: rem(-15px);
+          }
+          .views-field-body {
+            margin-top: rem(5px);
+          }
+          @include breakpoint(tablet) {
+            @include span-columns(4 of 12);
+          }
+          &:nth-child(3n) {
+            @include breakpoint(tablet) {
+              @include omega();
+            }
+          }
+        }
+      }
+    }
+  }
+}

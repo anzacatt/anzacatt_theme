@@ -1,0 +1,5 @@
+.page-user {
+  .block-system {
+    @include center-column($desktop_column);
+  }
+}
