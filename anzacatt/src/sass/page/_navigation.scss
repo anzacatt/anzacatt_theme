@@ -94,6 +94,12 @@
                 background-color: $main_menu_hover;
                 border-bottom-color: $secondary_2;
               }
+              &:not(.no-style) {
+                &[rel~='external'] {
+                  display: block;
+                  margin-right: 0;
+                }
+              }
             }
             &.active-trail {
               &>a {
