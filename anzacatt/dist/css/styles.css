@@ -6191,6 +6191,11 @@ html:not(.no-js) .region-navigation .block-superfish ul.sf-menu:not(.superfish-p
   border-bottom-color: #9e379f;
 }
 
+.region-navigation .block-superfish ul.sf-menu > li > ul li a:not(.no-style)[rel~='external'] {
+  display: block;
+  margin-right: 0;
+}
+
 .region-navigation .block-superfish ul.sf-menu > li > ul li.active-trail > a {
   background-color: #9e379f;
 }
