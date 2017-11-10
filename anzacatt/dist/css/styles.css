@@ -8662,8 +8662,12 @@ body.not-front #content .no-sidebar .view-publications .views-row .more-document
   border-bottom: 0;
 }
 
-#block-menu-block-govcms-menu-block-sidebar ul.menu li a:hover, #block-menu-block-govcms-menu-block-sidebar ul.menu li a:focus {
+#block-menu-block-govcms-menu-block-sidebar ul.menu li a.active-trail {
   border-left-color: #493267;
+  background-color: #def4f9;
+}
+
+#block-menu-block-govcms-menu-block-sidebar ul.menu li a:hover, #block-menu-block-govcms-menu-block-sidebar ul.menu li a:focus {
   background-color: #def4f9;
 }
 

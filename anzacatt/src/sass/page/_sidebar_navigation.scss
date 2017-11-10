@@ -119,8 +119,11 @@
         padding-right: rem(35px);
         border-left: 4px solid transparent;
         border-bottom: 0;
-        &:hover, &:focus {
+        &.active-trail {
           border-left-color: $primary_1;
+          background-color: #def4f9;
+        }
+        &:hover, &:focus {
           background-color: #def4f9;
         }
       }
