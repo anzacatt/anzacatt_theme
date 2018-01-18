@@ -317,3 +317,43 @@ function anzacatt_entity_info_alter(&$entity_info) {
 function anzacatt_preprocess_node_listing_event(&$variables) {
   $variables['view_more_link'] = l(t('Read more'), 'node/' . $variables['nid']);
 }
+
+/**
+ * Implements theme_status_messages().
+ */
+function anzacatt_status_messages($variables) {
+  $display = $variables['display'];
+  $output = '';
+
+  $status_heading = array(
+    'status' => t('Status message'),
+    'error' => t('Error message'),
+    'warning' => t('Warning message'),
+  );
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $output .= "<div class=\"messages $type\">\n";
+    if (!empty($status_heading[$type])) {
+      $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+    }
+    if (count($messages) > 1) {
+      $output .= " <ul>\n";
+      foreach ($messages as $message) {
+        // If blocked or not active, change the msg.
+        $str = 'has not been activated or is blocked';
+        if (arg(0) == 'user' && strstr($message, $str) !== FALSE) {
+          $message = 'ANZACATT accounts are deactivated if unused for 3 months. ' .
+            'If you\'re sure your username and password are right but they\'re not being accepted, ' .
+            'please <a href="https://www.anzacatt.org.au/contact">contact us</a> to get your account reactivated.';
+        }
+
+        $output .= '  <li>' . $message . "</li>\n";
+      }
+      $output .= " </ul>\n";
+    }
+    else {
+      $output .= reset($messages);
+    }
+    $output .= "</div>\n";
+  }
+  return $output;
+}
