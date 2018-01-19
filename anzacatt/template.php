@@ -339,8 +339,8 @@ function anzacatt_status_messages($variables) {
       $output .= " <ul>\n";
       foreach ($messages as $message) {
         // If blocked or not active, change the msg.
-        $str = 'has not been activated or is blocked';
-        if (arg(0) == 'user' && strstr($message, $str) !== FALSE) {
+        $str = substr($message, -37);
+        if ($str == 'has not been activated or is blocked.') {
           $message = 'ANZACATT accounts are deactivated if unused for 3 months. ' .
             'If you\'re sure your username and password are right but they\'re not being accepted, ' .
             'please <a href="https://www.anzacatt.org.au/contact">contact us</a> to get your account reactivated.';
