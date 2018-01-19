@@ -346,7 +346,7 @@ function anzacatt_status_messages($variables) {
             'please <a href="https://www.anzacatt.org.au/contact">contact us</a> to get your account reactivated.';
         }
 
-        $output .= '  <li>' . $message . "</li>\n";
+        $output .= '  <li>OK? ' . $message . "</li>\n";
       }
       $output .= " </ul>\n";
     }
